@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#start").click(function(){
+                var luckyValue = parseInt(Math.random()*10);
+                switch(luckyValue){
+                    case 3:
+                    alert("냉장고");
+                    break;
+                    case 5:
+                    alert("세탁기");
+                    break;
+                    case 8:
+                    alert("티비");
+                    break;
+                    default:
+                    alert("꽝");
+                    break;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <button class="start">클릭</button>
+</body>
+</html>

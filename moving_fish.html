@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>물고기 움직이기</title>
+    <style>
+        body{
+            font-size:9px;
+        }
+        #panel{
+            width: 500px;
+            height:500px;
+            border: 1px solid #999;
+            position : relative;
+        }
+        #fish{
+            position: absolute;
+            left: 50px;
+            top: 200px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        /*
+        switch를 활용한 물고기 움직이기
+        01.초기 시작위치 x(left)=50, y(top)= 200
+        02.왼쪽 화살표 버튼을 누르는 경우 왼쪽으로 -50만큰 이동
+        03. 오른쪽 화살표 버튼을 누르는 경우 오른쪽으로 +50만큼 이동
+        04. 위쪽 화살표 버튼을 누르는 경우 위쪽으로 -50만큼 이동
+        05. 아래쪽 화살표 버튼을 누르는 경우 아래쪽으로 +50만큼 이동
+        06. 단 물고기가 움직이는 영역(#panel)밖으로 넘어가면 안됨
+
+        1. 키보드 다운 이벤트 등록하는 방법
+        $(document).keydown(function(e){
+
+        });
+
+        2.키보드 입력값 알아내기
+        $(document).keydown(function(e){
+            alert("입력한 키 코드값 = " + e.keyCode);
+        })
+
+        3. 물고기 위치 움직이기
+        $fish.css({
+            left:물고기 x위치값
+            top:물고기 y위치값
+        })
+
+        4. 키값 (keyCode)
+        37:왼쪽 화살표
+        38:오른쪽 화살표
+        39:위쪽 화살표
+        40:아래쪽 화살표
+        */
+
+        
+        $(document).ready(function(){
+            //물고기 노드 구하기
+            var $fish = $("#fish");
+            //위치 초기화, 시작 위치는 50,200
+            var x = 50;
+            var y = 200;
+            //키보드 다운 이벤트 리스너 등록
+            $(document).keydown(function(e){
+                console.log("입력한 키코드 값 = " + e.keyCode);
+                switch(e.keyCode){
+                    case 37:
+                        x-=50;
+                        break;
+                    case 38:
+                        x+=50;
+                        break;
+                    case 39:
+                        y-=50;
+                        break;
+                    case 40:
+                        y+=50;
+                        break;
+                }
+
+                //물고기 유효값 처리
+                if(x<0) x=0;
+                if(x > 500-120) x=500-120;
+                if(y <0)y=0;
+                if(y > 500-70) y=500-70;
+                
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <img src="../HTML/images/fish.png" alt="" id="fish">
+</body>
+</html>
