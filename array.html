@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <title>Document</title>
+    <script>
+        var userName = ['a','b','c','d','e','f','g'];
+        $(document).ready(function(){
+            for(var i = 0; i < userName.length;i++){
+                if(i%2==0){
+                    userName[i] = userName[i]+"아니야";
+                }
+                else{
+                    userName[i] +="맞아";
+                }
+            }
+            $("li").each(function(i,j){
+                $(this).text(userName[i])
+                console.log("i : " + i)
+                console.log("j : " + j)
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

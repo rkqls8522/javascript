@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        /*문제)함수 선언 및 정의
+        두 개의 파라미터를 받아서 그 값을 더한 결과를 console.log로 출력하는 기능*/
+        function sum(i, j) {
+            var result = i + j;
+            console.log("두 개의 변수를 더한 결과 " + result);
+        }
+
+        /*문제2)함수 선언 및 정의
+        두 개의 파라미터를 받아서 첫번째 파라미터로 두번째 파라미터를 뺀 결과를 출력하는 기능*/
+        function sub(i, j) {
+            var result = i - j;
+            console.log("두 개의 변수를 뺀 결과 " + result);
+        }
+
+        /*문제3)함수 선언 및 정의
+        두 개의 파라미터를 받아서 2개를 곱한 결과를 출력하는 기능*/
+        function mul(i, j) {
+            var result = i * j;
+            console.log("두 개의 변수를 곱한 결과 " + result);
+        }
+
+        /*문제4)함수 선언 및 정의
+        두 개의 파라미터를 받아서 첫번째 파라미터로 두번째 파라미터를 나눈 결과를 출력하는 기능*/
+        function div(i, j) {
+            var result = i / j;
+            console.log("두 개의 변수를 나눈 결과 " + result);
+        }
+        var func = [sum, sub, mul, div];
+        console.log("111111111");
+
+        $(document).ready(function () {
+            $("button").each(function (index, opop) {
+                console.log("44444444");
+                $(this).on("click",function () {
+                    var x = parseInt($(".first").val());
+                    var y = parseInt($(".second").val());
+                    func[index](x, y);
+                    console.log(index + "index");
+                })
+            })
+
+            console.log("2222222");
+        })
+        console.log("33333333");
+    </script>
+</head>
+
+<body>
+    첫번째 파라미터는 : <input type="number" class="first">
+    두번째 파라미터는 : <input type="number" class="second">
+    <button id="sum">더하기</button>
+    <button id="sub">빼기</button>
+    <button id="mul">곱하기</button>
+    <button id="div">나누기</button>
+</body>
+
+</html>

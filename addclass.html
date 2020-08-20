@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            color:red;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button#add").click(function(){
+                var list1 = $("ul li");
+                var input = $("input#add").val();
+                if(input>6) alert("입력 범위를 넘었습니다.");
+                list1.each(function(i,j){
+                    console.log('list.length: '+list1.length);
+                    if(i==input) $(this).addClass("a");
+                })
+            })
+            $("button#remove").click(function(){
+                var list2 = $("ul li");
+                var input2 = $("input#remove").val();
+                if(input2>6) alert("입력 범위를 넘었습니다.");
+                list2.each(function(i,j){
+                    console.log(list2.length);
+                    if(i==input2) $(this).removeClass("a");
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>안녕하세요</li>
+        <li>반가워요</li>
+        <li>그러니까요</li>
+        <li>즐거워요</li>
+        <li>행복해요</li>
+        <li>사랑해요</li>
+    </ul>
+    추가 : <input type="number" class="add">
+        <button class="add">클래스 추가</button><br>
+    삭제 : <input type="number">
+        <button>클래스 삭제</button>
+
+    <div><label for="add"></label></div>
+</body>
+</html>

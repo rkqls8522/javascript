@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <style>
+        body{
+            font-size: 9px;
+        }
+
+        .d-checkbox{
+            position: relative;
+            left: 100px;
+            top: 100px;
+        }
+
+        .d-checkbox .checkbox{
+            width: 20px;
+            height: 15px;
+            float: left;
+            background: url("resources/checkbox_uncheck.png") no-repeat;
+        }
+        .d-checkbox .checkbox.check{
+            background: url("resources/checkbox_check.png") no-repeat;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var bcheck = false;
+            var $chk = $(".d-checkbox .checkbox")
+
+            $(".d-checkbox").click(function(){
+                bcheck = !bcheck;
+                if(bcheck == true){
+                    $chk.addClass("check");
+                } else {
+                    $chk.removeClass("check");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="d-checkbox">
+        <div class="checkbox"></div>
+        <div class="label">체크박스 여기 클릭</div>
+    </div>
+    
+</body>
+</html>

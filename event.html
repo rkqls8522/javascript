@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        function sum(num1,num2){
+            return num1+num2;
+        }
+        function sub(num1,num2){
+            return num1-num2;
+        }
+        function mul(num1,num2){
+            return num1*num2;
+        }
+        function div(num1,num2){
+            return num1/num2;
+        }
+        $(document).ready(function(){
+            $("#sum").click(function(){
+                var first = parseInt($(".first").val());
+                var second = parseInt($(".second").val());
+                var result = sum(first,second);
+                console.log(result);
+            })
+            $("#sub").click(function(){
+                var first = parseInt($(".first").val());
+                var second = parseInt($(".second").val());
+                var result = sub(first,second);
+                console.log(result);
+            })
+            $("#mul").click(function(){
+                var first = parseInt($(".first").val());
+                var second = parseInt($(".second").val());
+                var result = mul(first,second);
+                console.log(result);
+            })
+            $("#div").click(function(){
+                var first = parseInt($(".first").val());
+                var second = parseInt($(".second").val());
+                var result = div(first,second);
+                console.log(result);
+            })
+        })
+
+    </script>
+</head>
+<body>
+    first : <input type="number" class="first">
+    second : <input type="number" class="second">
+    <button id="sum">plus</button>
+    <button id="sub">minus</button>
+    <button id="mul">mul</button>
+    <button id="div">div</button>
+</body>
+</html>

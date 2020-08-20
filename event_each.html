@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        function sum(num1,num2){
+            return num1+num2;
+        }
+        function sub(num1,num2){
+            return num1-num2;
+        }
+        function mul(num1,num2){
+            return num1*num2;
+        }
+        function div(num1,num2){
+            return num1/num2;
+        }
+        var fuc = [sum,sub,mul,div];
+        $(document).ready(function(){
+            $("button").each(function(i,j){
+                $(this).on("click",function(){
+                    var first = parseInt($(".first").val());
+                    var second = parseInt($(".second").val());
+                    var result = fuc[i](first,second);
+                    console.log(result);
+                })
+            })
+        })
+
+    </script>
+</head>
+<body>
+    first : <input type="number" class="first">
+    second : <input type="number" class="second">
+    <button>plus</button>
+    <button>minus</button>
+    <button>mul</button>
+    <button>div</button>
+</body>
+</html>
